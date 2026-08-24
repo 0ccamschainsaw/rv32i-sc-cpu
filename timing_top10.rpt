@@ -1,0 +1,777 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Mon Aug 24 17:26:33 2026
+| Host         : Akshatt-PC running 64-bit major release  (build 9200)
+| Command      : report_timing -max_paths 10 -file D:/Vivadop/rv32i_SC/timing_top10.rpt
+| Design       : cpu_SC
+| Device       : 7z010i-clg225
+| Speed File   : -1L  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             17.185ns  (required time - arrival time)
+  Source:                 PC_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            PC_reg[30]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (clk rise@20.000ns - clk rise@0.000ns)
+  Data Path Delay:        2.828ns  (logic 2.148ns (75.945%)  route 0.680ns (24.055%))
+  Logic Levels:           9  (CARRY4=8 LUT1=1)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.378ns = ( 24.378 - 20.000 ) 
+    Source Clock Delay      (SCD):    4.883ns
+    Clock Pessimism Removal (CPR):    0.492ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    K11                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.972     0.972 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           2.076     3.048    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     3.149 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.734     4.883    clk_IBUF_BUFG
+    SLICE_X43Y25         FDCE                                         r  PC_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y25         FDCE (Prop_fdce_C_Q)         0.456     5.339 f  PC_reg[2]/Q
+                         net (fo=3, routed)           0.680     6.019    debug_pc_OBUF[2]
+    SLICE_X43Y25         LUT1 (Prop_lut1_I0_O)        0.124     6.143 r  PC[4]_i_2/O
+                         net (fo=1, routed)           0.000     6.143    PC[4]_i_2_n_0
+    SLICE_X43Y25         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     6.693 r  PC_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.693    PC_reg[4]_i_1_n_0
+    SLICE_X43Y26         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.807 r  PC_reg[8]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.807    PC_reg[8]_i_1_n_0
+    SLICE_X43Y27         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.921 r  PC_reg[12]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.921    PC_reg[12]_i_1_n_0
+    SLICE_X43Y28         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.035 r  PC_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.035    PC_reg[16]_i_1_n_0
+    SLICE_X43Y29         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.149 r  PC_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.149    PC_reg[20]_i_1_n_0
+    SLICE_X43Y30         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.263 r  PC_reg[24]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.263    PC_reg[24]_i_1_n_0
+    SLICE_X43Y31         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.377 r  PC_reg[28]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.377    PC_reg[28]_i_1_n_0
+    SLICE_X43Y32         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     7.711 r  PC_reg[31]_i_1/O[1]
+                         net (fo=1, routed)           0.000     7.711    PC_reg[31]_i_1_n_6
+    SLICE_X43Y32         FDCE                                         r  PC_reg[30]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       20.000    20.000 r  
+    K11                                               0.000    20.000 r  clk (IN)
+                         net (fo=0)                   0.000    20.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.838    20.838 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.880    22.718    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    22.809 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.568    24.378    clk_IBUF_BUFG
+    SLICE_X43Y32         FDCE                                         r  PC_reg[30]/C
+                         clock pessimism              0.492    24.870    
+                         clock uncertainty           -0.035    24.835    
+    SLICE_X43Y32         FDCE (Setup_fdce_C_D)        0.062    24.897    PC_reg[30]
+  -------------------------------------------------------------------
+                         required time                         24.897    
+                         arrival time                          -7.711    
+  -------------------------------------------------------------------
+                         slack                                 17.185    
+
+Slack (MET) :             17.280ns  (required time - arrival time)
+  Source:                 PC_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            PC_reg[31]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (clk rise@20.000ns - clk rise@0.000ns)
+  Data Path Delay:        2.733ns  (logic 2.053ns (75.109%)  route 0.680ns (24.891%))
+  Logic Levels:           9  (CARRY4=8 LUT1=1)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.378ns = ( 24.378 - 20.000 ) 
+    Source Clock Delay      (SCD):    4.883ns
+    Clock Pessimism Removal (CPR):    0.492ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    K11                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.972     0.972 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           2.076     3.048    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     3.149 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.734     4.883    clk_IBUF_BUFG
+    SLICE_X43Y25         FDCE                                         r  PC_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y25         FDCE (Prop_fdce_C_Q)         0.456     5.339 f  PC_reg[2]/Q
+                         net (fo=3, routed)           0.680     6.019    debug_pc_OBUF[2]
+    SLICE_X43Y25         LUT1 (Prop_lut1_I0_O)        0.124     6.143 r  PC[4]_i_2/O
+                         net (fo=1, routed)           0.000     6.143    PC[4]_i_2_n_0
+    SLICE_X43Y25         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     6.693 r  PC_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.693    PC_reg[4]_i_1_n_0
+    SLICE_X43Y26         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.807 r  PC_reg[8]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.807    PC_reg[8]_i_1_n_0
+    SLICE_X43Y27         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.921 r  PC_reg[12]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.921    PC_reg[12]_i_1_n_0
+    SLICE_X43Y28         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.035 r  PC_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.035    PC_reg[16]_i_1_n_0
+    SLICE_X43Y29         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.149 r  PC_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.149    PC_reg[20]_i_1_n_0
+    SLICE_X43Y30         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.263 r  PC_reg[24]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.263    PC_reg[24]_i_1_n_0
+    SLICE_X43Y31         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.377 r  PC_reg[28]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.377    PC_reg[28]_i_1_n_0
+    SLICE_X43Y32         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     7.616 r  PC_reg[31]_i_1/O[2]
+                         net (fo=1, routed)           0.000     7.616    PC_reg[31]_i_1_n_5
+    SLICE_X43Y32         FDCE                                         r  PC_reg[31]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       20.000    20.000 r  
+    K11                                               0.000    20.000 r  clk (IN)
+                         net (fo=0)                   0.000    20.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.838    20.838 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.880    22.718    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    22.809 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.568    24.378    clk_IBUF_BUFG
+    SLICE_X43Y32         FDCE                                         r  PC_reg[31]/C
+                         clock pessimism              0.492    24.870    
+                         clock uncertainty           -0.035    24.835    
+    SLICE_X43Y32         FDCE (Setup_fdce_C_D)        0.062    24.897    PC_reg[31]
+  -------------------------------------------------------------------
+                         required time                         24.897    
+                         arrival time                          -7.616    
+  -------------------------------------------------------------------
+                         slack                                 17.280    
+
+Slack (MET) :             17.296ns  (required time - arrival time)
+  Source:                 PC_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            PC_reg[29]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (clk rise@20.000ns - clk rise@0.000ns)
+  Data Path Delay:        2.717ns  (logic 2.037ns (74.962%)  route 0.680ns (25.038%))
+  Logic Levels:           9  (CARRY4=8 LUT1=1)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.378ns = ( 24.378 - 20.000 ) 
+    Source Clock Delay      (SCD):    4.883ns
+    Clock Pessimism Removal (CPR):    0.492ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    K11                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.972     0.972 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           2.076     3.048    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     3.149 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.734     4.883    clk_IBUF_BUFG
+    SLICE_X43Y25         FDCE                                         r  PC_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y25         FDCE (Prop_fdce_C_Q)         0.456     5.339 f  PC_reg[2]/Q
+                         net (fo=3, routed)           0.680     6.019    debug_pc_OBUF[2]
+    SLICE_X43Y25         LUT1 (Prop_lut1_I0_O)        0.124     6.143 r  PC[4]_i_2/O
+                         net (fo=1, routed)           0.000     6.143    PC[4]_i_2_n_0
+    SLICE_X43Y25         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     6.693 r  PC_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.693    PC_reg[4]_i_1_n_0
+    SLICE_X43Y26         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.807 r  PC_reg[8]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.807    PC_reg[8]_i_1_n_0
+    SLICE_X43Y27         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.921 r  PC_reg[12]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.921    PC_reg[12]_i_1_n_0
+    SLICE_X43Y28         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.035 r  PC_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.035    PC_reg[16]_i_1_n_0
+    SLICE_X43Y29         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.149 r  PC_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.149    PC_reg[20]_i_1_n_0
+    SLICE_X43Y30         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.263 r  PC_reg[24]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.263    PC_reg[24]_i_1_n_0
+    SLICE_X43Y31         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.377 r  PC_reg[28]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.377    PC_reg[28]_i_1_n_0
+    SLICE_X43Y32         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.223     7.600 r  PC_reg[31]_i_1/O[0]
+                         net (fo=1, routed)           0.000     7.600    PC_reg[31]_i_1_n_7
+    SLICE_X43Y32         FDCE                                         r  PC_reg[29]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       20.000    20.000 r  
+    K11                                               0.000    20.000 r  clk (IN)
+                         net (fo=0)                   0.000    20.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.838    20.838 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.880    22.718    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    22.809 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.568    24.378    clk_IBUF_BUFG
+    SLICE_X43Y32         FDCE                                         r  PC_reg[29]/C
+                         clock pessimism              0.492    24.870    
+                         clock uncertainty           -0.035    24.835    
+    SLICE_X43Y32         FDCE (Setup_fdce_C_D)        0.062    24.897    PC_reg[29]
+  -------------------------------------------------------------------
+                         required time                         24.897    
+                         arrival time                          -7.600    
+  -------------------------------------------------------------------
+                         slack                                 17.296    
+
+Slack (MET) :             17.297ns  (required time - arrival time)
+  Source:                 PC_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            PC_reg[26]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (clk rise@20.000ns - clk rise@0.000ns)
+  Data Path Delay:        2.714ns  (logic 2.034ns (74.935%)  route 0.680ns (25.065%))
+  Logic Levels:           8  (CARRY4=7 LUT1=1)
+  Clock Path Skew:        -0.015ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.376ns = ( 24.376 - 20.000 ) 
+    Source Clock Delay      (SCD):    4.883ns
+    Clock Pessimism Removal (CPR):    0.492ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    K11                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.972     0.972 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           2.076     3.048    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     3.149 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.734     4.883    clk_IBUF_BUFG
+    SLICE_X43Y25         FDCE                                         r  PC_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y25         FDCE (Prop_fdce_C_Q)         0.456     5.339 f  PC_reg[2]/Q
+                         net (fo=3, routed)           0.680     6.019    debug_pc_OBUF[2]
+    SLICE_X43Y25         LUT1 (Prop_lut1_I0_O)        0.124     6.143 r  PC[4]_i_2/O
+                         net (fo=1, routed)           0.000     6.143    PC[4]_i_2_n_0
+    SLICE_X43Y25         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     6.693 r  PC_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.693    PC_reg[4]_i_1_n_0
+    SLICE_X43Y26         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.807 r  PC_reg[8]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.807    PC_reg[8]_i_1_n_0
+    SLICE_X43Y27         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.921 r  PC_reg[12]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.921    PC_reg[12]_i_1_n_0
+    SLICE_X43Y28         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.035 r  PC_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.035    PC_reg[16]_i_1_n_0
+    SLICE_X43Y29         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.149 r  PC_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.149    PC_reg[20]_i_1_n_0
+    SLICE_X43Y30         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.263 r  PC_reg[24]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.263    PC_reg[24]_i_1_n_0
+    SLICE_X43Y31         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     7.597 r  PC_reg[28]_i_1/O[1]
+                         net (fo=1, routed)           0.000     7.597    PC_reg[28]_i_1_n_6
+    SLICE_X43Y31         FDCE                                         r  PC_reg[26]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       20.000    20.000 r  
+    K11                                               0.000    20.000 r  clk (IN)
+                         net (fo=0)                   0.000    20.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.838    20.838 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.880    22.718    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    22.809 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.566    24.376    clk_IBUF_BUFG
+    SLICE_X43Y31         FDCE                                         r  PC_reg[26]/C
+                         clock pessimism              0.492    24.868    
+                         clock uncertainty           -0.035    24.833    
+    SLICE_X43Y31         FDCE (Setup_fdce_C_D)        0.062    24.895    PC_reg[26]
+  -------------------------------------------------------------------
+                         required time                         24.895    
+                         arrival time                          -7.597    
+  -------------------------------------------------------------------
+                         slack                                 17.297    
+
+Slack (MET) :             17.318ns  (required time - arrival time)
+  Source:                 PC_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            PC_reg[28]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (clk rise@20.000ns - clk rise@0.000ns)
+  Data Path Delay:        2.693ns  (logic 2.013ns (74.739%)  route 0.680ns (25.261%))
+  Logic Levels:           8  (CARRY4=7 LUT1=1)
+  Clock Path Skew:        -0.015ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.376ns = ( 24.376 - 20.000 ) 
+    Source Clock Delay      (SCD):    4.883ns
+    Clock Pessimism Removal (CPR):    0.492ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    K11                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.972     0.972 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           2.076     3.048    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     3.149 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.734     4.883    clk_IBUF_BUFG
+    SLICE_X43Y25         FDCE                                         r  PC_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y25         FDCE (Prop_fdce_C_Q)         0.456     5.339 f  PC_reg[2]/Q
+                         net (fo=3, routed)           0.680     6.019    debug_pc_OBUF[2]
+    SLICE_X43Y25         LUT1 (Prop_lut1_I0_O)        0.124     6.143 r  PC[4]_i_2/O
+                         net (fo=1, routed)           0.000     6.143    PC[4]_i_2_n_0
+    SLICE_X43Y25         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     6.693 r  PC_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.693    PC_reg[4]_i_1_n_0
+    SLICE_X43Y26         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.807 r  PC_reg[8]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.807    PC_reg[8]_i_1_n_0
+    SLICE_X43Y27         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.921 r  PC_reg[12]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.921    PC_reg[12]_i_1_n_0
+    SLICE_X43Y28         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.035 r  PC_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.035    PC_reg[16]_i_1_n_0
+    SLICE_X43Y29         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.149 r  PC_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.149    PC_reg[20]_i_1_n_0
+    SLICE_X43Y30         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.263 r  PC_reg[24]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.263    PC_reg[24]_i_1_n_0
+    SLICE_X43Y31         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     7.576 r  PC_reg[28]_i_1/O[3]
+                         net (fo=1, routed)           0.000     7.576    PC_reg[28]_i_1_n_4
+    SLICE_X43Y31         FDCE                                         r  PC_reg[28]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       20.000    20.000 r  
+    K11                                               0.000    20.000 r  clk (IN)
+                         net (fo=0)                   0.000    20.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.838    20.838 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.880    22.718    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    22.809 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.566    24.376    clk_IBUF_BUFG
+    SLICE_X43Y31         FDCE                                         r  PC_reg[28]/C
+                         clock pessimism              0.492    24.868    
+                         clock uncertainty           -0.035    24.833    
+    SLICE_X43Y31         FDCE (Setup_fdce_C_D)        0.062    24.895    PC_reg[28]
+  -------------------------------------------------------------------
+                         required time                         24.895    
+                         arrival time                          -7.576    
+  -------------------------------------------------------------------
+                         slack                                 17.318    
+
+Slack (MET) :             17.392ns  (required time - arrival time)
+  Source:                 PC_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            PC_reg[27]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (clk rise@20.000ns - clk rise@0.000ns)
+  Data Path Delay:        2.619ns  (logic 1.939ns (74.025%)  route 0.680ns (25.975%))
+  Logic Levels:           8  (CARRY4=7 LUT1=1)
+  Clock Path Skew:        -0.015ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.376ns = ( 24.376 - 20.000 ) 
+    Source Clock Delay      (SCD):    4.883ns
+    Clock Pessimism Removal (CPR):    0.492ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    K11                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.972     0.972 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           2.076     3.048    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     3.149 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.734     4.883    clk_IBUF_BUFG
+    SLICE_X43Y25         FDCE                                         r  PC_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y25         FDCE (Prop_fdce_C_Q)         0.456     5.339 f  PC_reg[2]/Q
+                         net (fo=3, routed)           0.680     6.019    debug_pc_OBUF[2]
+    SLICE_X43Y25         LUT1 (Prop_lut1_I0_O)        0.124     6.143 r  PC[4]_i_2/O
+                         net (fo=1, routed)           0.000     6.143    PC[4]_i_2_n_0
+    SLICE_X43Y25         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     6.693 r  PC_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.693    PC_reg[4]_i_1_n_0
+    SLICE_X43Y26         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.807 r  PC_reg[8]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.807    PC_reg[8]_i_1_n_0
+    SLICE_X43Y27         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.921 r  PC_reg[12]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.921    PC_reg[12]_i_1_n_0
+    SLICE_X43Y28         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.035 r  PC_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.035    PC_reg[16]_i_1_n_0
+    SLICE_X43Y29         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.149 r  PC_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.149    PC_reg[20]_i_1_n_0
+    SLICE_X43Y30         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.263 r  PC_reg[24]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.263    PC_reg[24]_i_1_n_0
+    SLICE_X43Y31         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     7.502 r  PC_reg[28]_i_1/O[2]
+                         net (fo=1, routed)           0.000     7.502    PC_reg[28]_i_1_n_5
+    SLICE_X43Y31         FDCE                                         r  PC_reg[27]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       20.000    20.000 r  
+    K11                                               0.000    20.000 r  clk (IN)
+                         net (fo=0)                   0.000    20.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.838    20.838 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.880    22.718    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    22.809 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.566    24.376    clk_IBUF_BUFG
+    SLICE_X43Y31         FDCE                                         r  PC_reg[27]/C
+                         clock pessimism              0.492    24.868    
+                         clock uncertainty           -0.035    24.833    
+    SLICE_X43Y31         FDCE (Setup_fdce_C_D)        0.062    24.895    PC_reg[27]
+  -------------------------------------------------------------------
+                         required time                         24.895    
+                         arrival time                          -7.502    
+  -------------------------------------------------------------------
+                         slack                                 17.392    
+
+Slack (MET) :             17.408ns  (required time - arrival time)
+  Source:                 PC_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            PC_reg[25]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (clk rise@20.000ns - clk rise@0.000ns)
+  Data Path Delay:        2.603ns  (logic 1.923ns (73.866%)  route 0.680ns (26.134%))
+  Logic Levels:           8  (CARRY4=7 LUT1=1)
+  Clock Path Skew:        -0.015ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.376ns = ( 24.376 - 20.000 ) 
+    Source Clock Delay      (SCD):    4.883ns
+    Clock Pessimism Removal (CPR):    0.492ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    K11                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.972     0.972 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           2.076     3.048    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     3.149 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.734     4.883    clk_IBUF_BUFG
+    SLICE_X43Y25         FDCE                                         r  PC_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y25         FDCE (Prop_fdce_C_Q)         0.456     5.339 f  PC_reg[2]/Q
+                         net (fo=3, routed)           0.680     6.019    debug_pc_OBUF[2]
+    SLICE_X43Y25         LUT1 (Prop_lut1_I0_O)        0.124     6.143 r  PC[4]_i_2/O
+                         net (fo=1, routed)           0.000     6.143    PC[4]_i_2_n_0
+    SLICE_X43Y25         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     6.693 r  PC_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.693    PC_reg[4]_i_1_n_0
+    SLICE_X43Y26         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.807 r  PC_reg[8]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.807    PC_reg[8]_i_1_n_0
+    SLICE_X43Y27         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.921 r  PC_reg[12]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.921    PC_reg[12]_i_1_n_0
+    SLICE_X43Y28         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.035 r  PC_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.035    PC_reg[16]_i_1_n_0
+    SLICE_X43Y29         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.149 r  PC_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.149    PC_reg[20]_i_1_n_0
+    SLICE_X43Y30         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.263 r  PC_reg[24]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.263    PC_reg[24]_i_1_n_0
+    SLICE_X43Y31         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.223     7.486 r  PC_reg[28]_i_1/O[0]
+                         net (fo=1, routed)           0.000     7.486    PC_reg[28]_i_1_n_7
+    SLICE_X43Y31         FDCE                                         r  PC_reg[25]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       20.000    20.000 r  
+    K11                                               0.000    20.000 r  clk (IN)
+                         net (fo=0)                   0.000    20.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.838    20.838 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.880    22.718    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    22.809 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.566    24.376    clk_IBUF_BUFG
+    SLICE_X43Y31         FDCE                                         r  PC_reg[25]/C
+                         clock pessimism              0.492    24.868    
+                         clock uncertainty           -0.035    24.833    
+    SLICE_X43Y31         FDCE (Setup_fdce_C_D)        0.062    24.895    PC_reg[25]
+  -------------------------------------------------------------------
+                         required time                         24.895    
+                         arrival time                          -7.486    
+  -------------------------------------------------------------------
+                         slack                                 17.408    
+
+Slack (MET) :             17.410ns  (required time - arrival time)
+  Source:                 PC_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            PC_reg[22]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (clk rise@20.000ns - clk rise@0.000ns)
+  Data Path Delay:        2.600ns  (logic 1.920ns (73.836%)  route 0.680ns (26.164%))
+  Logic Levels:           7  (CARRY4=6 LUT1=1)
+  Clock Path Skew:        -0.016ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.375ns = ( 24.375 - 20.000 ) 
+    Source Clock Delay      (SCD):    4.883ns
+    Clock Pessimism Removal (CPR):    0.492ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    K11                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.972     0.972 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           2.076     3.048    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     3.149 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.734     4.883    clk_IBUF_BUFG
+    SLICE_X43Y25         FDCE                                         r  PC_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y25         FDCE (Prop_fdce_C_Q)         0.456     5.339 f  PC_reg[2]/Q
+                         net (fo=3, routed)           0.680     6.019    debug_pc_OBUF[2]
+    SLICE_X43Y25         LUT1 (Prop_lut1_I0_O)        0.124     6.143 r  PC[4]_i_2/O
+                         net (fo=1, routed)           0.000     6.143    PC[4]_i_2_n_0
+    SLICE_X43Y25         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     6.693 r  PC_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.693    PC_reg[4]_i_1_n_0
+    SLICE_X43Y26         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.807 r  PC_reg[8]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.807    PC_reg[8]_i_1_n_0
+    SLICE_X43Y27         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.921 r  PC_reg[12]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.921    PC_reg[12]_i_1_n_0
+    SLICE_X43Y28         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.035 r  PC_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.035    PC_reg[16]_i_1_n_0
+    SLICE_X43Y29         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.149 r  PC_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.149    PC_reg[20]_i_1_n_0
+    SLICE_X43Y30         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     7.483 r  PC_reg[24]_i_1/O[1]
+                         net (fo=1, routed)           0.000     7.483    PC_reg[24]_i_1_n_6
+    SLICE_X43Y30         FDCE                                         r  PC_reg[22]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       20.000    20.000 r  
+    K11                                               0.000    20.000 r  clk (IN)
+                         net (fo=0)                   0.000    20.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.838    20.838 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.880    22.718    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    22.809 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.565    24.375    clk_IBUF_BUFG
+    SLICE_X43Y30         FDCE                                         r  PC_reg[22]/C
+                         clock pessimism              0.492    24.867    
+                         clock uncertainty           -0.035    24.832    
+    SLICE_X43Y30         FDCE (Setup_fdce_C_D)        0.062    24.894    PC_reg[22]
+  -------------------------------------------------------------------
+                         required time                         24.894    
+                         arrival time                          -7.483    
+  -------------------------------------------------------------------
+                         slack                                 17.410    
+
+Slack (MET) :             17.431ns  (required time - arrival time)
+  Source:                 PC_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            PC_reg[24]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (clk rise@20.000ns - clk rise@0.000ns)
+  Data Path Delay:        2.579ns  (logic 1.899ns (73.623%)  route 0.680ns (26.377%))
+  Logic Levels:           7  (CARRY4=6 LUT1=1)
+  Clock Path Skew:        -0.016ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.375ns = ( 24.375 - 20.000 ) 
+    Source Clock Delay      (SCD):    4.883ns
+    Clock Pessimism Removal (CPR):    0.492ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    K11                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.972     0.972 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           2.076     3.048    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     3.149 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.734     4.883    clk_IBUF_BUFG
+    SLICE_X43Y25         FDCE                                         r  PC_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y25         FDCE (Prop_fdce_C_Q)         0.456     5.339 f  PC_reg[2]/Q
+                         net (fo=3, routed)           0.680     6.019    debug_pc_OBUF[2]
+    SLICE_X43Y25         LUT1 (Prop_lut1_I0_O)        0.124     6.143 r  PC[4]_i_2/O
+                         net (fo=1, routed)           0.000     6.143    PC[4]_i_2_n_0
+    SLICE_X43Y25         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     6.693 r  PC_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.693    PC_reg[4]_i_1_n_0
+    SLICE_X43Y26         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.807 r  PC_reg[8]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.807    PC_reg[8]_i_1_n_0
+    SLICE_X43Y27         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.921 r  PC_reg[12]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.921    PC_reg[12]_i_1_n_0
+    SLICE_X43Y28         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.035 r  PC_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.035    PC_reg[16]_i_1_n_0
+    SLICE_X43Y29         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.149 r  PC_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.149    PC_reg[20]_i_1_n_0
+    SLICE_X43Y30         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     7.462 r  PC_reg[24]_i_1/O[3]
+                         net (fo=1, routed)           0.000     7.462    PC_reg[24]_i_1_n_4
+    SLICE_X43Y30         FDCE                                         r  PC_reg[24]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       20.000    20.000 r  
+    K11                                               0.000    20.000 r  clk (IN)
+                         net (fo=0)                   0.000    20.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.838    20.838 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.880    22.718    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    22.809 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.565    24.375    clk_IBUF_BUFG
+    SLICE_X43Y30         FDCE                                         r  PC_reg[24]/C
+                         clock pessimism              0.492    24.867    
+                         clock uncertainty           -0.035    24.832    
+    SLICE_X43Y30         FDCE (Setup_fdce_C_D)        0.062    24.894    PC_reg[24]
+  -------------------------------------------------------------------
+                         required time                         24.894    
+                         arrival time                          -7.462    
+  -------------------------------------------------------------------
+                         slack                                 17.431    
+
+Slack (MET) :             17.505ns  (required time - arrival time)
+  Source:                 PC_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            PC_reg[23]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (clk rise@20.000ns - clk rise@0.000ns)
+  Data Path Delay:        2.505ns  (logic 1.825ns (72.844%)  route 0.680ns (27.156%))
+  Logic Levels:           7  (CARRY4=6 LUT1=1)
+  Clock Path Skew:        -0.016ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.375ns = ( 24.375 - 20.000 ) 
+    Source Clock Delay      (SCD):    4.883ns
+    Clock Pessimism Removal (CPR):    0.492ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    K11                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.972     0.972 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           2.076     3.048    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     3.149 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.734     4.883    clk_IBUF_BUFG
+    SLICE_X43Y25         FDCE                                         r  PC_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y25         FDCE (Prop_fdce_C_Q)         0.456     5.339 f  PC_reg[2]/Q
+                         net (fo=3, routed)           0.680     6.019    debug_pc_OBUF[2]
+    SLICE_X43Y25         LUT1 (Prop_lut1_I0_O)        0.124     6.143 r  PC[4]_i_2/O
+                         net (fo=1, routed)           0.000     6.143    PC[4]_i_2_n_0
+    SLICE_X43Y25         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     6.693 r  PC_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.693    PC_reg[4]_i_1_n_0
+    SLICE_X43Y26         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.807 r  PC_reg[8]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.807    PC_reg[8]_i_1_n_0
+    SLICE_X43Y27         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.921 r  PC_reg[12]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     6.921    PC_reg[12]_i_1_n_0
+    SLICE_X43Y28         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.035 r  PC_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.035    PC_reg[16]_i_1_n_0
+    SLICE_X43Y29         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.149 r  PC_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     7.149    PC_reg[20]_i_1_n_0
+    SLICE_X43Y30         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     7.388 r  PC_reg[24]_i_1/O[2]
+                         net (fo=1, routed)           0.000     7.388    PC_reg[24]_i_1_n_5
+    SLICE_X43Y30         FDCE                                         r  PC_reg[23]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       20.000    20.000 r  
+    K11                                               0.000    20.000 r  clk (IN)
+                         net (fo=0)                   0.000    20.000    clk
+    K11                  IBUF (Prop_ibuf_I_O)         0.838    20.838 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.880    22.718    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    22.809 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.565    24.375    clk_IBUF_BUFG
+    SLICE_X43Y30         FDCE                                         r  PC_reg[23]/C
+                         clock pessimism              0.492    24.867    
+                         clock uncertainty           -0.035    24.832    
+    SLICE_X43Y30         FDCE (Setup_fdce_C_D)        0.062    24.894    PC_reg[23]
+  -------------------------------------------------------------------
+                         required time                         24.894    
+                         arrival time                          -7.388    
+  -------------------------------------------------------------------
+                         slack                                 17.505    
+
+
+
+
