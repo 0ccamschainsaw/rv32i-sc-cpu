@@ -3,6 +3,8 @@
 module cpu_SC(
     input clk,
     input rst
+    output [31:0] debug_pc,
+    output [15:0] debug_wd
 );
 
     reg [31:0] PC;
@@ -120,5 +122,7 @@ module cpu_SC(
             PC <= PCsrc ? pc_branch : pc_plus_4;
         end
     end
+    assign debug_pc = PC;
+    assign debug_wd = wd[15:0];
 
 endmodule
