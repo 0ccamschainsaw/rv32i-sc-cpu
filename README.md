@@ -8,7 +8,7 @@ rtl/        - the actual CPU design (Vivado Design Sources)
 sim/        - ready-to-run testbenches (Simulation Sources)
 ```
 
-### `rtl/` — the CPU (13 files)
+### `rtl/` — the CPU 
 | File | Role |
 |---|---|
 | `cpu_SC.v` | Top-level single-cycle datapath |
@@ -22,9 +22,12 @@ sim/        - ready-to-run testbenches (Simulation Sources)
 | `rv32ialu.v` | The ALU itself |
 | `aluaddsub.v`, `alucomp.v`, `alusltu.v` | ALU sub-units (add/sub, signed compare, unsigned compare) |
 | `BankedMEM.v` | Byte-banked data memory (4× 1KB banks) |
-
 ### `sim/`
 - `dut.v` — top wrapper (`cpu_SC` instantiated as `cpu`)
-- `tb_program1.v`, `tb_program2.v`, `tb_program3_fibonacci.v` — the three test programs, **pre-loaded with machine code** and self-checking. 
-
+- `tb_program1.v`, `tb_program2.v`, `tb_program3_fibonacci.v` — the three test programs, **pre-loaded with machine code** and self-checking.
+### `constrs/`
+- `timing.xdc` — 50 MHz clock constraint (`create_clock -period 20.000`) targeting a Zynq-7000 (`xc7z010iclg225-1L`)
+### `reports/`
+- `timing_summary.rpt` — Vivado static timing analysis summary; timing closed with 0 failing setup/hold endpoints
+- `timing_top10.rpt` — top 10 worst-case paths; critical path (2.83 ns, through the PC increment carry-chain) yields a theoretical Fmax of ~350 MHz
 ---
