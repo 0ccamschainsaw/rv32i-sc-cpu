@@ -4,7 +4,7 @@ module cpu_SC(
     input clk,
     input rst
     output [31:0] debug_pc,
-    output [15:0] debug_wd
+    output [15:0] debug_wd      //debug output ports added for STA observability
 );
 
     reg [31:0] PC;
