@@ -15,6 +15,7 @@ module aluaddsub(
         end
         else begin
             y <= #3 a + bcomp;
+            //y <= #3 a - b;
         end
         negflag <= y[31];
         posflag <= (y > 0) && (!y[31]);

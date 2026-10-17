@@ -2,9 +2,12 @@
 
 module cpu_SC(
     input clk,
-    input rst
+    input rst,
+    input         imem_we,
+    input  [7:0]  imem_waddr,
+    input  [31:0] imem_wdata,
     output [31:0] debug_pc,
-    output [15:0] debug_wd      //debug output ports added for STA observability
+    output [15:0] debug_wd
 );
 
     reg [31:0] PC;
@@ -25,6 +28,8 @@ module cpu_SC(
 
     wire [2:0] alu_ctrl_sig;
     wire is_rtype_sig;
+    always @(posedge clk)
+        if (imem_we) IMEM[imem_waddr] <= imem_wdata;
 
     // Instruction fetch
     assign instruction = IMEM[PC[9:2]];

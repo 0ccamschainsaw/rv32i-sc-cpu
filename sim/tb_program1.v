@@ -16,6 +16,7 @@ module tb_program1;
 
     reg clk;
     reg rst;
+    integer error_count;
 
     dut cpu_dut(
         .clk(clk),
@@ -44,13 +45,28 @@ module tb_program1;
         rst = 1;
         #10 rst = 0;
         #100; // enough cycles for 8 instructions (10ns/cycle)
+        error_count = 0;
         $display("x1 = %0d (expected 10)",  $signed(cpu_dut.cpu.rf.x[1]));
         $display("x2 = %0d (expected 20)",  $signed(cpu_dut.cpu.rf.x[2]));
-        $display("x3 = %0d (expected 245)", $signed(cpu_dut.cpu.rf.x[3]));
+        $display("x3 = %0d (expected 246)", $signed(cpu_dut.cpu.rf.x[3]));
         $display("x4 = %0d (expected 5)",   $signed(cpu_dut.cpu.rf.x[4]));
         $display("x5 = %0d (expected -5)",  $signed(cpu_dut.cpu.rf.x[5]));
         $display("x6 = %0d (expected 25)",  $signed(cpu_dut.cpu.rf.x[6]));
         $display("x7 = %0d (expected 266)", $signed(cpu_dut.cpu.rf.x[7]));
+
+
+        if ($signed(cpu_dut.cpu.rf.x[1]) !== 10) begin $display("ERROR: x1 expected 10, got %0d", $signed(cpu_dut.cpu.rf.x[1])); error_count = error_count + 1; end
+        if ($signed(cpu_dut.cpu.rf.x[2]) !== 20) begin $display("ERROR: x2 expected 20, got %0d", $signed(cpu_dut.cpu.rf.x[2])); error_count = error_count + 1; end
+        if ($signed(cpu_dut.cpu.rf.x[3]) !== 246) begin $display("ERROR: x3 expected 245, got %0d", $signed(cpu_dut.cpu.rf.x[3])); error_count = error_count + 1; end
+        if ($signed(cpu_dut.cpu.rf.x[4]) !== 5) begin $display("ERROR: x4 expected 5, got %0d", $signed(cpu_dut.cpu.rf.x[4])); error_count = error_count + 1; end
+        if ($signed(cpu_dut.cpu.rf.x[5]) !== -5) begin $display("ERROR: x5 expected -5, got %0d", $signed(cpu_dut.cpu.rf.x[5])); error_count = error_count + 1; end
+        if ($signed(cpu_dut.cpu.rf.x[6]) !== 25) begin $display("ERROR: x6 expected 25, got %0d", $signed(cpu_dut.cpu.rf.x[6])); error_count = error_count + 1; end
+        if ($signed(cpu_dut.cpu.rf.x[7]) !== 266) begin $display("ERROR: x7 expected 266, got %0d", $signed(cpu_dut.cpu.rf.x[7])); error_count = error_count + 1; end
+
+        if (error_count == 0)
+            $display("TEST PASSED");
+        else
+            $display("TEST FAILED: %0d mismatches", error_count);
 
         $finish;
     end

@@ -25,10 +25,8 @@ module BankedMEM(
         end
     end
 
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
-            // Reset logic if needed
-        end else if (writeEn) begin
+    always @(posedge clk) begin
+        if (writeEn) begin
             b0[addr[11:2]] <= wdata[7:0];
             b1[addr[11:2]] <= wdata[15:8];
             b2[addr[11:2]] <= wdata[23:16];

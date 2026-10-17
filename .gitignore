@@ -1,0 +1,13 @@
+sim_out/
+sim_out_timing/
+xsim.dir/
+.Xil/
+*.jou
+*.log
+*.pb
+*.wdb
+clockInfo.txt
+dfx_runtime.txt
+webtalk*
+__pycache__/
+*.pyc

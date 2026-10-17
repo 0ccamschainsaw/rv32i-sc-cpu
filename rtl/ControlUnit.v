@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module ControlUnit (instruction, zero, RegWrite, ALUSrc, MemWrite, MemRead, ImmSel, PCsrc, Jal, IsRtype);
     input [31:0] instruction;
     input zero;
