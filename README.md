@@ -136,12 +136,8 @@ vivado -mode batch -source scripts\timing.tcl -log sim_out\vivado.log -journal s
 Setup (constraint file and FPGA part number) is described in
 [`docs/GETTING_STARTED.md`](docs/GETTING_STARTED.md#12-optional-automate-the-timing-analysis).
 Open `sim_out_timing/timing_summary.rpt` and check **WNS** (worst negative slack); a non-negative value means timing is met.
-
----
-
-## Timing results
-
 A sample report from the current RTL is in [`docs/results/timing_summary.rpt`](docs/results/timing_summary.rpt).
+
 ---
 
 ## Limitations
