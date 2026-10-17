@@ -127,8 +127,7 @@ The machine code for each program is pre-loaded inside its testbench.
 ## Timing analysis
 
 The same batch approach works for static timing analysis: `scripts/timing.tcl` runs synthesis and implementation
-without the GUI and writes timing and utilization reports to `sim_out_timing/`.
-Run 'vivado -mode batch -source scripts\timing.tcl -log sim_out_timing\vivado.log -journal sim_out_timing\vivado.jou" 
+without the GUI and writes timing and utilization reports to `sim_out_timing/`. 
 
 ```
 vivado -mode batch -source scripts\timing.tcl -log sim_out\vivado.log -journal sim_out\vivado.jou
@@ -140,7 +139,7 @@ Open `sim_out_timing/timing_summary.rpt` and check **WNS** (worst negative slack
 
 ---
 
-# Timing results
+## Timing results
 
 A sample report from the current RTL is in [`docs/results/timing_summary.rpt`](docs/results/timing_summary.rpt).
 ---
