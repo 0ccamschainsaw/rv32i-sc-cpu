@@ -156,21 +156,9 @@ tool crash is reported as `FAIL`.
 | `tb_program2` / `prog2` | legacy / hex | register dataflow including `lw`, `add`, `sw` (registers only) |
 | `prog2_store` | hex | the `sw` from program 2 actually lands at the right data-memory word |
 | `tb_program3_fibonacci` / `prog3_fibonacci` | legacy / hex | a loop closed by `bne` |
-| `prog4_loadstore` | hex | stores and loads with non-zero base and offsets, and that distinct addresses do not alias |
-| `prog5_branches` | hex | `beq` / `bne` between two non-zero registers, equal and unequal |
 
 The hex tests `prog1`, `prog2` and `prog3_fibonacci` run the same three programs as the legacy testbenches (with a
 halt instruction appended), so they can be compared directly.
-
-### Why `prog2_store`, `prog4_loadstore` and `prog5_branches` exist
-
-The original testbenches never read data memory back, and their loop test only branched against `x0`. That hid a
-bug: `alu_ctrl.v` chose the ALU operation from `funct3` alone, so `lw`/`sw` (`funct3 = 010`) ran as `SLT` instead of
-`ADD` and every load and store used address 0 or 1, and `beq`/`bne` compared the wrong thing unless one operand
-was `x0`. The new tests expose both. The fix is two override inputs on `alu_ctrl` (`force_add` for loads and
-stores, `force_sub` for branches), driven from `cpu_SC.v`.
-
----
 
 ## Repository structure
 
