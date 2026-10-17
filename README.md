@@ -43,6 +43,7 @@ The repository has two parts:
 
 - Xilinx Vivado with the `xsim` simulator, with its `bin` folder on PATH (run Vivado's `settings64.bat` or
   `settings64.sh` in your terminal first)
+- run "D:\AMDDesignTools\2025.2\Vivado\settings64.bat" (just a placeholder, change accordingly)
 - Python 3.8 or newer (standard library only, nothing to install)
 
 **Run**
@@ -127,6 +128,7 @@ The machine code for each program is pre-loaded inside its testbench.
 
 The same batch approach works for static timing analysis: `scripts/timing.tcl` runs synthesis and implementation
 without the GUI and writes timing and utilization reports to `sim_out_timing/`.
+Run 'vivado -mode batch -source scripts\timing.tcl -log sim_out_timing\vivado.log -journal sim_out_timing\vivado.jou" 
 
 ```
 vivado -mode batch -source scripts\timing.tcl -log sim_out\vivado.log -journal sim_out\vivado.jou
@@ -136,6 +138,11 @@ Setup (constraint file and FPGA part number) is described in
 [`docs/GETTING_STARTED.md`](docs/GETTING_STARTED.md#12-optional-automate-the-timing-analysis).
 Open `sim_out_timing/timing_summary.rpt` and check **WNS** (worst negative slack); a non-negative value means timing is met.
 
+---
+
+# Timing results
+
+A sample report from the current RTL is in [`docs/results/timing_summary.rpt`](docs/results/timing_summary.rpt).
 ---
 
 ## Limitations
