@@ -20,6 +20,8 @@ module cpu_SC(
     wire zero;
     wire [31:0] mem_data;
     wire [31:0] wd; // write data to reg
+    wire [31:0] pc_plus_4;
+    wire [31:0] pc_branch;
 
     wire RegWrite, ALUSrc, MemWrite, MemRead, Jal;
     //wire [2:0] ALUOp;
@@ -28,6 +30,16 @@ module cpu_SC(
 
     wire [2:0] alu_ctrl_sig;
     wire is_rtype_sig;
+    wire is_branch = (ImmSel == 3'b010);
+    wire is_mem = MemRead | MemWrite;
+    wire br_sub = is_branch & ~instruction[14];
+    wire br_slt = is_branch & instruction[14];
+    wire [2:0] alu_f3 = is_mem ? 3'b000 : br_sub ? 3'b000 : br_slt ? 3'b010 : instruction[14:12];
+    wire alu_f75 = br_sub ? 1'b1 : instruction[30];
+    wire alu_uf7 = br_sub ? 1'b1 : is_rtype_sig;
+    wire is_lui = (ImmSel == 3'b011);
+    wire is_jalr = (ImmSel == 3'b101);
+    wire is_auipc = (ImmSel == 3'b110);
     always @(posedge clk)
         if (imem_we) IMEM[imem_waddr] <= imem_wdata;
 
@@ -71,9 +83,9 @@ module cpu_SC(
     // ALU control
     alu_ctrl alu_c(
         .alu_ctrl(alu_ctrl_sig),
-        .funct3(instruction[14:12]),
-        .funct7_5(instruction[30]),
-        .use_funct7(is_rtype_sig)
+        .funct3(alu_f3),
+        .funct7_5(alu_f75),
+        .use_funct7(alu_uf7)
     );
 
     // ALU
@@ -96,12 +108,9 @@ module cpu_SC(
     );
 
     // Write data mux
-    assign wd = Jal ? (PC + 4) : (MemRead ? mem_data : alu_result);
+    assign wd = Jal ? pc_plus_4 : MemRead ? mem_data : is_lui ? imm : is_auipc ? pc_branch : alu_result;
 
     // PC update logic
-    wire [31:0] pc_plus_4;
-    wire [31:0] pc_branch;
-
     aluaddsub pc_add4(
         .a(PC),
         .b(32'd4),
@@ -124,7 +133,7 @@ module cpu_SC(
         if (rst) begin
             PC <= 32'b0;
         end else begin
-            PC <= PCsrc ? pc_branch : pc_plus_4;
+            PC <= is_jalr ? {alu_result[31:1], 1'b0} : PCsrc ? pc_branch : pc_plus_4;
         end
     end
     assign debug_pc = PC;

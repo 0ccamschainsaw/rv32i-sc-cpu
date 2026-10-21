@@ -22,12 +22,13 @@ Usage (from the repo root, in a terminal where Vivado's tools are on PATH):
 
 Exit code: 0 if every counted test passed, 1 otherwise.
 """
-import argparse
-import re
-import shutil
-import subprocess
-import sys
-import time
+import argparse   #parse command-line arguments
+import re         #regular expressions for parsing xsim output
+import shutil     #file operations (copy, delete)
+import torch      #for tensor operations (used in the testbench)
+import subprocess #run vivado cmds
+import sys        #error reporting and exit
+import time       #time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent   # the repo folder

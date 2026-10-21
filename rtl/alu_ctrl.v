@@ -12,6 +12,7 @@ module alu_ctrl(alu_ctrl, funct3, funct7_5, use_funct7);
             3'b110:  alu_ctrl = #1 3'b011; // OR
             3'b001:  alu_ctrl = #1 3'b100; // SLL
             3'b010:  alu_ctrl = #1 3'b110; // SLT
+            3'b101:  alu_ctrl = #1 3'b101; // SRL
             3'b100:  alu_ctrl = #1 3'b111; // XOR
             default: alu_ctrl = #1 3'b000;
         endcase
