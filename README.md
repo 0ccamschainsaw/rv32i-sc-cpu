@@ -169,8 +169,6 @@ Instruction memory remains 256 words and data memory 1024 words. `jal x0, 0` is 
 
 - [ ] Run official RV32I test programs (for example from `riscv-tests` / `riscv-arch-test`) against the core, loaded
       from hex files so new tests need no Verilog changes
-- [ ] Move test programs out of the testbenches into a `tests/` folder with a single generic testbench
-- [ ] Compare the core against a reference model (for example Spike) instruction by instruction
 - [ ] Random instruction-stream tests with reproducible seeds
 - [ ] SystemVerilog assertions and functional coverage
 
